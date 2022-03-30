@@ -4,7 +4,8 @@
   "info": {
     "singularName": "accumatica",
     "pluralName": "accumaticas",
-    "displayName": "accumatica"
+    "displayName": "accumatica",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,6 +13,15 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
+      "type": "string"
+    },
+    "connection_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::connection.connection",
+      "mappedBy": "accumatica_id"
+    },
+    "refreshToken": {
       "type": "string"
     }
   }

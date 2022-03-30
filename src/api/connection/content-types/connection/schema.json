@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "connections",
+  "info": {
+    "singularName": "connection",
+    "pluralName": "connections",
+    "displayName": "Connection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "accumatica_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::accumatica.accumatica",
+      "inversedBy": "connection_id"
+    },
+    "bigcommerce_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bigcommerce.bigcommerce",
+      "inversedBy": "connection_id"
+    }
+  }
+}

@@ -16,7 +16,8 @@
       "type": "string"
     },
     "storeHash": {
-      "type": "string"
+      "type": "string",
+      "unique": true
     },
     "accessToken": {
       "type": "string"
@@ -29,6 +30,12 @@
     },
     "responseType": {
       "type": "string"
+    },
+    "connection_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::connection.connection",
+      "inversedBy": "bigcommerce_id"
     }
   }
 }
