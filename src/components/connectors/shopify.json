@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_connectors_shopifies",
+  "info": {
+    "displayName": "Shopify",
+    "icon": "store-alt"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

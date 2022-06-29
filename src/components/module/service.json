@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_module_services",
+  "info": {
+    "displayName": "Service",
+    "icon": "bezier-curve",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "POST",
+        "GET"
+      ]
+    },
+    "event": {
+      "type": "richtext"
+    },
+    "name": {
+      "type": "string",
+      "unique": false
+    }
+  }
+}

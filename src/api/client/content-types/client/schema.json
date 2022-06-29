@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clients",
+  "info": {
+    "singularName": "client",
+    "pluralName": "clients",
+    "displayName": "Client",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "acumatica": {
+      "type": "component",
+      "repeatable": false,
+      "component": "connectors.acumatica"
+    },
+    "bigcommerce": {
+      "type": "component",
+      "repeatable": false,
+      "component": "connectors.bigcommerce"
+    },
+    "secretToken": {
+      "type": "string",
+      "required": true,
+      "private": true,
+      "unique": true
+    },
+    "role": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

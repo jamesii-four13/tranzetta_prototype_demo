@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_module_cron_jobs",
+  "info": {
+    "displayName": "CronJob",
+    "icon": "circle-notch",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "schedule": {
+      "type": "string"
+    },
+    "event": {
+      "type": "richtext"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "last_run": {
+      "type": "datetime"
+    }
+  }
+}

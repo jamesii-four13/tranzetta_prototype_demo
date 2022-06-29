@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_connectors_bigcommerces",
+  "info": {
+    "displayName": "Bigcommerce",
+    "icon": "store"
+  },
+  "options": {},
+  "attributes": {
+    "baseUrl": {
+      "type": "string",
+      "required": true
+    },
+    "accessToken": {
+      "type": "string",
+      "required": true
+    },
+    "version": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

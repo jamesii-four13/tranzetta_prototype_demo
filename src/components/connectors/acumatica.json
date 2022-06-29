@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_connectors_acumaticas",
+  "info": {
+    "displayName": "Acumatica",
+    "icon": "link",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "baseUrl": {
+      "type": "string",
+      "required": true
+    },
+    "clientId": {
+      "type": "string",
+      "required": true
+    },
+    "clientSecret": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    },
+    "username": {
+      "type": "string",
+      "required": true
+    },
+    "password": {
+      "type": "password",
+      "required": true
+    },
+    "version": {
+      "type": "string"
+    },
+    "accessToken": {
+      "type": "string"
+    }
+  }
+}
