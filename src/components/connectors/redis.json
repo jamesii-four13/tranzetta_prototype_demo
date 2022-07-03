@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_connectors_redis",
+  "info": {
+    "displayName": "Redis",
+    "icon": "memory"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

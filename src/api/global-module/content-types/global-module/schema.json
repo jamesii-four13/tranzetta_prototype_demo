@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "global_modules",
+  "info": {
+    "singularName": "global-module",
+    "pluralName": "global-modules",
+    "displayName": "Global Module",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "actions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "module.service"
+    }
+  }
+}

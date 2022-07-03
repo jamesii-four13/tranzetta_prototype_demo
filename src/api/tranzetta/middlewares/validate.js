@@ -18,8 +18,10 @@ module.exports =
           bc: await strapi.service('api::tranzetta.bigcommerce-wrapper')(client.bigcommerce)
         }
       } else {
-        // throw authentication error
+        return ctx.unauthorized('Unauthorized Request')
       }
+    } else {
+      return ctx.unauthorized('Unauthorized Request')
     }
 
     await next(); 

@@ -3,7 +3,7 @@ module.exports = {
     // webhook with authentication
     {
       method: 'GET',
-      path: '/v1/tranzetta/:accessToken/:service',
+      path: '/v1/tranzetta/:scope/:accessToken/:service',
       handler: 'tranzetta.connection',
       config: {
         auth: false,
