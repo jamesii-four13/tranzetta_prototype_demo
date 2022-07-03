@@ -18,7 +18,7 @@ class BigcommerceClient extends HttpWrapper {
     });
 
     this.axios = axios.create({
-      baseURL: `${account.baseUrl}/${account.version}`,
+      baseURL: `${account.baseUrl}/${account.storeHash}/${account.version}`,
       headers: {
         ['X-Auth-Token']: account.accessToken,
       },
@@ -36,6 +36,18 @@ class BigcommerceClient extends HttpWrapper {
   
   async deleteCategory(categoryId, query) {
     return await this.delete(`/catalog/categories/${categoryId}`, query);
+  }
+
+  async createCategoryBatch(data) {
+    return await this.post('catalog/trees/categories', data);
+  }
+
+  async deleteCategoryBatch(query) {
+    return await this.delete('catalog/trees/categories', query);
+  }
+
+  async updateCategoryBatch(data, query) {
+    return await this.put('catalog/trees/categories', data, query);
   }
 }
 

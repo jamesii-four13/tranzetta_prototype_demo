@@ -7,14 +7,8 @@
   },
   "options": {},
   "attributes": {
-    "name": {
-      "type": "string"
-    },
     "schedule": {
       "type": "string"
-    },
-    "event": {
-      "type": "richtext"
     },
     "active": {
       "type": "boolean"
