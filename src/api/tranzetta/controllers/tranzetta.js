@@ -9,7 +9,7 @@ module.exports = {
     const { service } = ctx.params
     
     const data = await actions[service](client);
-    
+
     await next();
 
     return data;
