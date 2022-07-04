@@ -4,4 +4,12 @@ module.exports = ({ env }) => ({
   app: {
     keys: env.array('APP_KEYS'),
   },
+  cron: {
+    enabled: true,
+    tasks: {
+      "*/30 * * * * *": ({ strapi }) => {
+        return strapi.service("api::tranzetta.cron-job")();
+      },
+    },
+  },
 });

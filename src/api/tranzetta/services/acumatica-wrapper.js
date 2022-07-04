@@ -19,13 +19,11 @@ class AcumaticaClient extends HttpWrapper {
   }
 
   async login() {
-    try {
-      let accessToken = this.account.accessToken
-    
+    try {    
       this.axios = axios.create({
         baseURL: `${this.account.baseUrl}/entity/Default/${this.account.version}`,
         headers: {
-          Authorization: `Bearer ${accessToken}`,
+          Authorization: `Bearer ${this.account.accessToken}`,
         },
       });
   
@@ -37,12 +35,14 @@ class AcumaticaClient extends HttpWrapper {
           const originalRequest = error.config;
           
           if (error.response.status === 401) {
+            const client = await strapi.service('api::client.client').findOneByField({ id: this.account.accountId });
             const token = await this.OauthClient.owner.getToken(this.account.username, this.account.password);
-            accessToken = token.accessToken;
-            console.log('####################',  token.accessToken, ' token.accessToken ##############')
-            const data = await strapi.service('api::client.client').update(this.account.id, { acumatica : { ...this.account.acumatica, accessToken:  token.accessToken }});
-            console.log('###################################', data, 'updated#####################')
-            originalRequest.headers['Authorization'] = `Bearer ${accessToken}`;
+            
+            client.acumatica.accessToken = token.accessToken;
+                        
+            await strapi.service('api::client.client').update(this.account.accountId, { data: client });
+            
+            originalRequest.headers['Authorization'] = `Bearer ${token.accessToken}`;
   
             return axios(originalRequest);
           }

@@ -21,11 +21,6 @@
       "type": "component",
       "repeatable": true,
       "component": "module.service"
-    },
-    "job": {
-      "type": "component",
-      "repeatable": false,
-      "component": "module.cron-job"
     }
   }
 }

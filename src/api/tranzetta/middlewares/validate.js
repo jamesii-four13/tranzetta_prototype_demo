@@ -14,7 +14,7 @@ module.exports =
   
       if (isVerified) {
         ctx.state.client = {
-          ac: await strapi.service('api::tranzetta.acumatica-wrapper')(client.acumatica),
+          ac: await strapi.service('api::tranzetta.acumatica-wrapper')({ ...client.acumatica, accountId: id }),
           bc: await strapi.service('api::tranzetta.bigcommerce-wrapper')(client.bigcommerce)
         }
       } else {
