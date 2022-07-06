@@ -16,9 +16,7 @@ module.exports = createCoreService(
           .findOne({
             where: entity,
             populate: {
-              bigcommerce: true,
-              acumatica: true,
-              shopify: true,
+              apps: true,
             },
           });
   

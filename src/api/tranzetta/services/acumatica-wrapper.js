@@ -37,8 +37,12 @@ class AcumaticaClient extends HttpWrapper {
           if (error.response.status === 401) {
             const client = await strapi.service('api::client.client').findOneByField({ id: this.account.accountId });
             const token = await this.OauthClient.owner.getToken(this.account.username, this.account.password);
-            
-            client.acumatica.accessToken = token.accessToken;
+
+            client.apps.forEach(app => {
+              if (app.__component === 'connectors.acumatica') {
+                app.accessToken = token.accessToken;
+              }
+            });
                         
             await strapi.service('api::client.client').update(this.account.accountId, { data: client });
             
@@ -51,7 +55,7 @@ class AcumaticaClient extends HttpWrapper {
         },
       );
     } catch(error) {
-      console.log(error, 'error');
+      // console.log(error, 'error');
     }
   }
   

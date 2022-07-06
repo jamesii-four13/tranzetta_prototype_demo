@@ -23,6 +23,17 @@ class BigcommerceClient extends HttpWrapper {
         ['X-Auth-Token']: account.accessToken,
       },
     });
+    
+    this.axios.interceptors.response.use(
+      response => {
+        return response;
+      },
+      async error => {
+        console.log(error.response.data, 'asdasdasdasdasd 2')
+
+        return error.response.data;
+      },
+    );
   }
 
   // Categories API

@@ -9,13 +9,16 @@ module.exports =
     const [id, signature] = accessToken.split(':')
     const client = await strapi.service('api::client.client').findOneByField({ id });
 
+
     if (client) {
       const isVerified = verifySignature(`${id}${client.name}`, signature, client.secretToken)
   
       if (isVerified) {
         ctx.state.client = {
-          ac: await strapi.service('api::tranzetta.acumatica-wrapper')({ ...client.acumatica, accountId: id }),
-          bc: await strapi.service('api::tranzetta.bigcommerce-wrapper')(client.bigcommerce)
+          ac: await strapi.service('api::tranzetta.acumatica-wrapper')({ 
+            ...client.apps.find(i => i.__component === 'connectors.acumatica'), accountId: id 
+          }),
+          bc: await strapi.service('api::tranzetta.bigcommerce-wrapper')(client.apps.find(i => i.__component === 'connectors.bigcommerce'))
         }
       } else {
         return ctx.unauthorized('Unauthorized Request')
