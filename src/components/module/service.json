@@ -20,18 +20,6 @@
     "name": {
       "type": "string",
       "unique": false
-    },
-    "schedule": {
-      "type": "string"
-    },
-    "active": {
-      "type": "boolean"
-    },
-    "startAt": {
-      "type": "datetime"
-    },
-    "results": {
-      "type": "json"
     }
   }
 }

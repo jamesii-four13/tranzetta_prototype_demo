@@ -60,6 +60,19 @@ class BigcommerceClient extends HttpWrapper {
   async updateCategoryBatch(data, query) {
     return await this.put('catalog/trees/categories', data, query);
   }
+
+  async createProductCustomField(productId, data) {
+    return await this.post(`catalog/products/${productId}/custom-fields`, data);
+  }
+
+  async updateProductCustomField(productId, customFieldId, data) {
+    return await this.post(`catalog/products/${productId}/custom-fields/${customFieldId}`, data);
+  }
+
+  async createCustomerAttributes(productId, customFieldId, data) {
+    return await this.post(`catalog/products/${productId}/custom-fields/${customFieldId}`, data);
+  }
+
 }
 
 module.exports =

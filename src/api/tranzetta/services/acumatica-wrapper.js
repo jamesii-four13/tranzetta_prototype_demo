@@ -70,6 +70,10 @@ class AcumaticaClient extends HttpWrapper {
   async getItemSalesCategory(query) {
     return await this.get(`/ItemSalesCategory`, query);
   }
+
+  async getCustomers(query) {
+    return await this.get(`/Customer`, query);
+  }
 }
 
 module.exports =
